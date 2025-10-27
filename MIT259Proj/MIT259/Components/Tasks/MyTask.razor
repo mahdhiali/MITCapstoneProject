@@ -1,0 +1,57 @@
+﻿@page "/MyTasks"
+@rendermode InteractiveServer
+@using Blazored.Toast;
+@using Blazored.Toast.Services
+@using BlazorBootstrap;
+@using System;
+@inject IToastService ToastServices;
+
+<button class="tablink @(ActiveCode == 1 ? "bred" : "")" @onclick="@(() => ActiveCode = 1)">Inbox</button>
+<button class="tablink @(ActiveCode == 2 ? "bred" : "")" @onclick="@(() => ActiveCode = 2)">Outbox</button>
+<button class="tablink @(ActiveCode == 3 ? "bred" : "")" @onclick="@(() => ActiveCode = 3)">Completed</button>
+<button class="tablink @(ActiveCode == 4 ? "bred" : "")" @onclick="@(() => ActiveCode = 4)">Draft</button>
+
+
+@code{
+    public int ActiveCode { get; set; } = 1;
+}
+    @if(ActiveCode == 1)
+{
+<div style="
+      padding: 20px 20px;
+      height: 100%;">
+    <Inbox />
+</div>
+}
+else if(ActiveCode == 2)
+{
+    <hr />
+    <div style="
+              padding: 20px 20px;
+          height: 100%;">
+        
+        <h3>Outbox</h3>
+        <p>Home is where the heart is..</p>
+    </div>
+}
+else if (ActiveCode == 3)
+{
+    <hr />
+    <div style="
+              padding: 20px 20px;
+          height: 100%;">
+        <h3>Completed</h3>
+        <p>Home is where the heart is..</p>
+    </div>
+}
+else if(ActiveCode == 4)
+{
+    <hr />
+    <div style="
+              padding: 20px 20px;
+          height: 100%;">
+        <h3>Other</h3>
+        <p>Home is where the heart is..</p>
+    </div>
+}
+

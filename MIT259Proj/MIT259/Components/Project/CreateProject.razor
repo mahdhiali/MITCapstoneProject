@@ -1,0 +1,513 @@
+﻿@page "/Project/Create"
+@page "/Project/Create/{QVRId:int?}"
+
+@rendermode InteractiveServer
+@using Eclipse360.Models;
+@using Eclipse360.Data;
+@using Eclipse360.Servicese;
+@using Eclipse360.Servicese.InsertDataaa;
+@inject ViewDatas ViewDatass;
+@inject LoadData loadDatas;
+@inject InsrtData InsrtDatas;
+@inject IJSRuntime JSRuntime
+@inject NavigationManager Navigation
+@using BlazorBootstrap;
+@using System.Collections.Generic;
+@using Microsoft.AspNetCore.Authorization
+
+
+@attribute [Authorize]
+
+
+<style>
+    .tree-container {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+
+    .tree-view {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .tree-node {
+        list-style-type: none;
+        margin: 4px 0;
+    }
+
+    .node-content {
+        display: flex;
+        align-items: center;
+        padding: unset !important;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+        border: 1px solid transparent;
+    }
+
+        .node-content:hover {
+            background-color: #f0f8ff;
+            border-color: #d1e7ff;
+        }
+
+        .node-content.selected {
+            background-color: #007bff !important;
+            color: white;
+            border-color: #0056b3;
+        }
+
+    .node-toggle {
+        list-style-type: none;
+        width: 20px;
+        text-align: center;
+        margin-right: 8px;
+        font-size: 12px;
+        color: #666;
+        cursor: pointer;
+        padding: 4px;
+    }
+
+    .node-content.selected .node-toggle {
+        color: white;
+    }
+
+    .node-text {
+        flex: 1;
+        font-size: 14px;
+        color: #333;
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: 3px;
+    }
+
+        .node-text:hover {
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+
+    .node-content.selected .node-text {
+        color: white;
+    }
+
+        .node-content.selected .node-text:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+    .child-count {
+        font-size: 12px;
+        color: #888;
+        margin-left: 8px;
+    }
+
+    .node-content.selected .child-count {
+        color: white;
+    }
+
+    .node-children {
+        margin-left: 11px;
+        border-left: 2px solid #e0e0e0;
+        padding-left: 15px;
+    }
+
+    .selected-node-info {
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 4px;
+    }
+</style>
+<div class="mb-3">
+    @if (locations != null && locations.Any())
+    {
+        <!-- Selected node info -->
+        @if (selectedNodeId != 0)
+        {
+            <div class="selected-node-info alert alert-info mt-3 flex-nowrap d-flex">
+                <strong>Selected Location:</strong>
+                @SelectedNode?.NodName (@SelectedNode?.Code) - ID: @selectedNodeId
+
+                @foreach(var lst in locations)
+                {
+                    if( lst.Id == selectedNodeId && lst.Nodetype == null)
+                    {
+                        <div class="float-end ms-auto"><a href="/Project/View/@selectedNodeId" class="btn btn-sm btn-primary">Edit</a> </div>
+                    }
+                }
+            </div>
+            
+        }
+        else
+        {
+            <div class="selected-node-info alert alert-secondary mt-3">
+                No location selected
+            </div>
+        }
+    }
+</div>
+<div class="row">
+
+    <div class="col-6">
+        <div class="card">
+
+            @if (locations == null)
+            {
+                <p>Loading locations...</p>
+            }
+            else if (!locations.Any())
+            {
+                <p>No locations found.</p>
+            }
+            else
+            {
+                <div class="tree-container">
+                    <ul class="tree-view">
+                        @foreach (var location in locations.Where(x => x.ParentId == 0))
+                        {
+                            @RenderTreeItem(location, 0)
+                        }
+                    </ul>
+                </div>
+            }
+    </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            
+            @if (QVRId != null)
+            {
+               
+                    <div class="card-body">
+                        
+                            <!-- Project Name -->
+                            <div class="mb-3">
+                                <label for="projectName" class="form-label">Project Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" @bind-value="@ProjectName" id="projectName" required>
+                            </div>
+
+                            <!-- Project Code -->
+                            <div class="mb-3">
+                                <label for="projectCode" class="form-label">Project Code <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" @bind-value="@ProjectCode" id="projectCode" required>
+                            </div>
+
+                            <!-- Project Manager -->
+                            <div class="mb-3">
+                                <label for="projectManager" class="form-label">Project Manager <span class="text-danger">*</span></label>
+                            <select class="form-select" @bind="@PM" id="projectManager" required>
+                                    <option value="" selected disabled>Select Project Manager</option>
+                                    @foreach(var lst in PMS)
+                                {
+                                    <option value="@lst.LoginId">@lst.Fname @lst.Mname @lst.Lname</option>
+                                }
+                            </select>
+                            </div>
+
+                            <!-- Project Type -->
+                            <div class="mb-3">
+                                <label for="projectType" class="form-label">Project Type <span class="text-danger">*</span></label>
+                                <select class="form-select" @bind="@ProjectType" id="projectType" required>
+                                    <option value="" selected disabled>Select Project Type</option>
+                                @foreach (var lst in ProjectTypes)
+                                {
+                                    <option value="@lst.Id">@lst.Name</option>
+                                }
+                                </select>
+                            </div>
+
+                            <!-- Project Location Coordinates -->
+                            <div class="mb-3">
+                                <label class="form-label">Project Location Coordinates <span class="text-danger">*</span></label>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="latitude" class="form-label">Latitude</label>
+                                        <input type="text" @bind-value="@CoredLat" class="form-control" id="latitude" placeholder="e.g., 25.2867" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="longitude" class="form-label">Longitude</label>
+                                    <input type="text" @bind-value="@CordLong" class="form-control" id="longitude" placeholder="e.g., 51.5333" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                    <button type="submit" @onclick="@HandleValidSubmit" class="btn btn-primary float-end">Create Project</button>
+                       
+                    </div>
+               
+
+               
+}
+            else
+            {
+            <div class="card-body">
+                
+                    <div class="mb-3">
+                        <label for="projectManager" class="form-label">Nod Type <span class="text-danger">*</span></label>
+                        <select class="form-select" @bind="@SelectedNodType" id="projectManager" required>
+                            <option value="" selected disabled>Select</option>
+                            @foreach (var lst in NodTypes)
+                            {
+                                <option value="@lst.Id">@lst.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <!-- Project Name -->
+                    <div class="mb-3">
+                        <label for="projectName" class="form-label">Nod Name <span class="text-danger">*</span></label>
+                        <input type="text" @bind-value="@NodName" class="form-control" id="projectName" required>
+                    </div>
+
+                    <!-- Project Code -->
+                    <div class="mb-3">
+                        <label for="projectCode" class="form-label">Code <span class="text-danger">*</span></label>
+                            <input type="text" @bind-value="@NodCode" class="form-control" id="projectCode" required>
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="submit" @onclick="@CreateNod" class="btn btn-primary float-end">Create Node</button>
+                
+            </div>
+            }
+
+            </div>
+       
+    </div>
+</div>
+
+
+
+@code {
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    private int LoggedInUserId;
+
+    public int LocaCatId { get; set; } = 1;
+    private List<ProjectLocation> locations = new List<ProjectLocation>();
+    /* private HashSet<int> expandedNodes = new HashSet<int>(); */
+
+    public int? SelectedLocationId { get; set; }
+
+
+    [Parameter]
+    public int? QVRId { get; set; } // Quotation Ver Row ID
+
+    public List<LoadManagersToCreateProjectForm> PMS = new();
+    public List<ProjectType> ProjectTypes = new();
+
+
+    public List<ProjectNodType> NodTypes = new();
+
+    public int? result; // create node result
+
+    public int SelectedNodType = 0;
+    public string? NodName;
+    public string? NodCode;
+
+
+
+    // public int? QVRId;
+    public int? ProjectType;
+    public string? ProjectName;
+    public string? ProjectCode;
+    public int? PM;
+    public string? CoredLat;
+    public string? CordLong;
+    public int? parentNodId;
+
+    private async Task HandleValidSubmit()
+    {
+        result = await InsrtDatas.CreateProject(
+        selectedNodeId,                    // Convert null to 0
+        ProjectName ?? string.Empty,            // Convert null to empty string
+        ProjectCode ?? string.Empty,            // Convert null to empty string
+        LoggedInUserId,                    // Convert null to 0
+        QVRId ?? 0,                            // Convert null to 0
+        ProjectType ?? 0,                       // Convert null to 0
+        PM ?? 0,                               // Convert null to 0
+        CoredLat ?? string.Empty,               // Convert null to empty string
+        CordLong ?? string.Empty                // Convert null to empty string
+    );
+
+        if (result == 200)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", QVRId + " Record success fully created");
+            Navigation.NavigateTo("/");
+        }
+        else if (result == 404)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", QVRId + " - " + result + "Somthing went wrong, please contact your support");
+            Navigation.NavigateTo("/");
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("alert", QVRId + " " + result + " Somthing went wrong, please contact your support");
+            Navigation.NavigateTo("/");
+        }
+
+        
+        
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var authState = await authenticationStateTask;
+            var user = authState.User;
+
+            if (user.Identity?.IsAuthenticated == true)
+            {
+                // Get the username (typically the email)
+                // username = user.Identity.Name;
+
+                // Get the user ID from the claims and parse to an integer
+                var userIdString = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+                if (int.TryParse(userIdString, out int id))
+                {
+                    LoggedInUserId = id;
+                }
+            }
+            // Get your data from service
+            locations = await ViewDatass.GetLocationTreeAsync(LocaCatId);
+
+            // Debug: Check what data we're getting
+            Console.WriteLine($"Total locations: {locations?.Count}");
+            if (locations != null)
+            {
+                Console.WriteLine($"Root nodes: {locations.Count(x => x.ParentId == 0)}");
+            }
+
+            // Optionally expand first level by default
+            if (locations != null && locations.Any())
+            {
+                var rootNodes = locations.Where(x => x.ParentId == 0).Select(x => x.Id);
+                expandedNodes = new HashSet<int>(rootNodes);
+            }
+
+            if (QVRId != null)
+            {
+                PMS = await loadDatas.LoadPMAsync(); //load pm to select
+
+                ProjectTypes = await loadDatas.LoadProjectTypeAsync();
+
+            }
+            else
+            {
+
+                NodTypes = await loadDatas.LoadLocationNodType();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading locations: {ex.Message}");
+        }
+    }
+
+    public async Task CreateNod()
+    {
+        result = await InsrtDatas.CreateNod(selectedNodeId, NodName, NodCode, LoggedInUserId, SelectedNodType);
+
+        if (result == 200)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", selectedNodeId + " Record success fully created");
+            Navigation.NavigateTo("/");
+        }
+        else if (result == 404)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", selectedNodeId + " 404 Somthing went wrong, please contact your support");
+            Navigation.NavigateTo("/");
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("alert", selectedNodeId + " Somthing went wrong, please contact your support");
+        }
+        Navigation.NavigateTo("/");
+    }
+
+    private void ToggleNode(int nodeId)
+    {
+        if (expandedNodes.Contains(nodeId))
+        {
+            expandedNodes.Remove(nodeId);
+        }
+        else
+        {
+            expandedNodes.Add(nodeId);
+        }
+
+        StateHasChanged();
+    }
+    // Add this new method for node selection
+    private async Task SelectNode(int nodeId)
+    {
+        selectedNodeId = nodeId;
+
+        // Notify parent component if needed
+        if (OnNodeSelected.HasDelegate)
+        {
+            var selectedNode = locations.FirstOrDefault(x => x.Id == nodeId);
+            await OnNodeSelected.InvokeAsync(selectedNode);
+        }
+
+        StateHasChanged();
+    }
+
+    private bool IsExpanded(int nodeId) => expandedNodes.Contains(nodeId);
+
+    private List<ProjectLocation> GetChildren(int parentId)
+    {
+        return locations?.Where(x => x.ParentId == parentId).ToList() ?? new List<ProjectLocation>();
+    }
+
+    private RenderFragment RenderTreeItem(ProjectLocation item, int level) => @<text>
+    <li class="tree-node">
+        <div class="node-content @(selectedNodeId == item.Id ? "selected" : "")"
+             @onclick:stopPropagation="true">
+            <!-- Toggle icon - click expands/collapses -->
+            <span class="node-toggle" @onclick="@(() => ToggleNode(item.Id))">
+                @if (GetChildren(item.Id).Any())
+                                {
+                                if (IsExpanded(item.Id))
+                                {
+                <text>▼</text>
+                                }
+                                else
+                                {
+                <text>►</text>
+                                }
+                                }
+                                else
+                {
+                    <text>•</text>
+                }
+            </span>
+
+            <!-- Node text - click selects -->
+            <span class="node-text" @onclick="@(() => SelectNode(item.Id))">
+                @item.NodName (@item.Code)
+                @if (GetChildren(item.Id).Any())
+                {
+                    <span class="child-count">[@GetChildren(item.Id).Count]</span>
+                }
+            </span>
+        </div>
+        @if (GetChildren(item.Id).Any() && IsExpanded(item.Id))
+        {
+            <ul class="node-children">
+                @foreach (var child in GetChildren(item.Id))
+                {
+                    @RenderTreeItem(child, level + 1)
+                }
+            </ul>
+        }
+    </li>
+</text>;
+
+private HashSet<int> expandedNodes = new HashSet<int>();
+private int selectedNodeId = 0; // Add this line for selected node
+
+// Add this property to expose selected node
+public ProjectLocation SelectedNode => locations?.FirstOrDefault(x => x.Id == selectedNodeId);
+
+// Add this event for parent components to listen to selection changes
+[Parameter] public EventCallback<ProjectLocation> OnNodeSelected { get; set; }
+}

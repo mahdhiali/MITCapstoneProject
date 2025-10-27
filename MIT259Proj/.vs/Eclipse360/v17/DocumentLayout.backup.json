@@ -1,0 +1,181 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|d:\\eclipse\\eclipse360 protrack crm\\eclipse360-protrack-crm\\proj src\\dev2025-aug-11\\new folder (2)\\eclipse360\\eclipse360\\servicese\\loaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|solutionrelative:eclipse360\\servicese\\loaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|d:\\eclipse\\eclipse360 protrack crm\\eclipse360-protrack-crm\\proj src\\dev2025-aug-11\\new folder (2)\\eclipse360\\eclipse360\\components\\quotation\\listquoat.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|solutionrelative:eclipse360\\components\\quotation\\listquoat.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|d:\\eclipse\\eclipse360 protrack crm\\eclipse360-protrack-crm\\proj src\\dev2025-aug-11\\new folder (2)\\eclipse360\\eclipse360\\servicese\\viewdatas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|solutionrelative:eclipse360\\servicese\\viewdatas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|d:\\eclipse\\eclipse360 protrack crm\\eclipse360-protrack-crm\\proj src\\dev2025-aug-11\\new folder (2)\\eclipse360\\eclipse360\\components\\project\\createproject.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|solutionrelative:eclipse360\\components\\project\\createproject.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|d:\\eclipse\\eclipse360 protrack crm\\eclipse360-protrack-crm\\proj src\\dev2025-aug-11\\new folder (2)\\eclipse360\\eclipse360\\components\\project\\viewprojects.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|solutionrelative:eclipse360\\components\\project\\viewprojects.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|d:\\eclipse\\eclipse360 protrack crm\\eclipse360-protrack-crm\\proj src\\dev2025-aug-11\\new folder (2)\\eclipse360\\eclipse360\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|solutionrelative:eclipse360\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|d:\\eclipse\\eclipse360 protrack crm\\eclipse360-protrack-crm\\proj src\\dev2025-aug-11\\new folder (2)\\eclipse360\\eclipse360\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|solutionrelative:eclipse360\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|d:\\eclipse\\eclipse360 protrack crm\\eclipse360-protrack-crm\\proj src\\dev2025-aug-11\\new folder (2)\\eclipse360\\eclipse360\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|solutionrelative:eclipse360\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|d:\\eclipse\\eclipse360 protrack crm\\eclipse360-protrack-crm\\proj src\\dev2025-aug-11\\new folder (2)\\eclipse360\\eclipse360\\servicese\\searchdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|solutionrelative:eclipse360\\servicese\\searchdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|d:\\eclipse\\eclipse360 protrack crm\\eclipse360-protrack-crm\\proj src\\dev2025-aug-11\\new folder (2)\\eclipse360\\eclipse360\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EAEC5308-E5E6-4E03-8FF0-9E4FE9F56ADB}|Eclipse360\\Eclipse360.csproj|solutionrelative:eclipse360\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoadData.cs",
+              "DocumentMoniker": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Servicese\\LoadData.cs",
+              "RelativeDocumentMoniker": "Eclipse360\\Servicese\\LoadData.cs",
+              "ToolTip": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Servicese\\LoadData.cs",
+              "RelativeToolTip": "Eclipse360\\Servicese\\LoadData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T17:33:14.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ListQuoat.razor",
+              "DocumentMoniker": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\Quotation\\ListQuoat.razor",
+              "RelativeDocumentMoniker": "Eclipse360\\Components\\Quotation\\ListQuoat.razor",
+              "ToolTip": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\Quotation\\ListQuoat.razor",
+              "RelativeToolTip": "Eclipse360\\Components\\Quotation\\ListQuoat.razor",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACEAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T15:01:45.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Eclipse360\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Eclipse360\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAqwIoAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T14:36:19.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SearchData.cs",
+              "DocumentMoniker": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Servicese\\SearchData.cs",
+              "RelativeDocumentMoniker": "Eclipse360\\Servicese\\SearchData.cs",
+              "ToolTip": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Servicese\\SearchData.cs",
+              "RelativeToolTip": "Eclipse360\\Servicese\\SearchData.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBUAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T13:44:46.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "App.razor",
+              "DocumentMoniker": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Eclipse360\\Components\\App.razor",
+              "ToolTip": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\App.razor",
+              "RelativeToolTip": "Eclipse360\\Components\\App.razor",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAmwMwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T12:41:21.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Home.razor",
+              "DocumentMoniker": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "Eclipse360\\Components\\Pages\\Home.razor",
+              "ToolTip": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "Eclipse360\\Components\\Pages\\Home.razor",
+              "ViewState": "AgIAADAAAAAAAAAAAAAswDsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T12:23:26.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CreateProject.razor",
+              "DocumentMoniker": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\Project\\CreateProject.razor",
+              "RelativeDocumentMoniker": "Eclipse360\\Components\\Project\\CreateProject.razor",
+              "ToolTip": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\Project\\CreateProject.razor",
+              "RelativeToolTip": "Eclipse360\\Components\\Project\\CreateProject.razor",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAAAAcBAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T12:40:45.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Program.cs",
+              "RelativeDocumentMoniker": "Eclipse360\\Program.cs",
+              "ToolTip": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Program.cs",
+              "RelativeToolTip": "Eclipse360\\Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T17:57:16.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ViewProjects.razor",
+              "DocumentMoniker": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\Project\\ViewProjects.razor",
+              "RelativeDocumentMoniker": "Eclipse360\\Components\\Project\\ViewProjects.razor",
+              "ToolTip": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Components\\Project\\ViewProjects.razor",
+              "RelativeToolTip": "Eclipse360\\Components\\Project\\ViewProjects.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T12:10:43.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ViewDatas.cs",
+              "DocumentMoniker": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Servicese\\ViewDatas.cs",
+              "RelativeDocumentMoniker": "Eclipse360\\Servicese\\ViewDatas.cs",
+              "ToolTip": "D:\\Eclipse\\Eclipse360 ProTrack CRM\\Eclipse360-ProTrack-CRM\\Proj Src\\Dev2025-Aug-11\\New folder (2)\\Eclipse360\\Eclipse360\\Servicese\\ViewDatas.cs",
+              "RelativeToolTip": "Eclipse360\\Servicese\\ViewDatas.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T18:39:23.489Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

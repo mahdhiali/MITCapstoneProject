@@ -1,0 +1,381 @@
+﻿@page "/Quotation/View/{VRId:int}/{QOId:int}/{VR:int}"
+
+@rendermode InteractiveServer
+@using Eclipse360.Models;
+@using Eclipse360.Data;
+@using Eclipse360.Servicese;
+@using Eclipse360.Servicese.InsertDataaa;
+@inject ViewDatas ViewDatass;
+@inject LoadData loadDatas;
+@inject InsrtData InsrtDatas;
+
+@using Microsoft.AspNetCore.Authorization
+@inject IJSRuntime JSRuntime
+@attribute [Authorize]
+
+<!-- CollapsibleTableRow.razor -->
+<section>
+<div class="card mb-3">
+    <div class="card-body">
+<p style="cursor: pointer; margin-bottom:-4px;" @onclick="Toggle">
+        @if (_show)
+        {
+            <p style="margin-bottom:-4px;">Customer Details <span>▼</span</p> <!-- Down arrow when expanded -->            
+        }
+        else
+        {
+            <p style="margin-bottom:-4px;">Customer Details <span>▶</span></p> <!-- Right arrow when collapsed -->
+        }
+        @HeaderContent
+    </p>
+
+
+@if (_show)
+{
+    @ChildContent
+    @if(ViewQuoatInfos != null)
+{ <hr/>
+        <div class="mb-3 row">
+            <label for="" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" disabled class="form-control bg-white" id="inputPassword" value="@ViewQuoatInfos.Fname @ViewQuoatInfos.Lname">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="" class="col-sm-2 col-form-label">Mobile No</label>
+            <div class="col-sm-10">
+                <input type="text" disabled class="form-control  bg-white" id="inputPassword" value="@ViewQuoatInfos.Mobile1">
+            </div>
+        </div>
+        <div class="mb-3 row">
+    <label for="" class="col-sm-2 col-form-label">Country</label>
+    <div class="col-sm-10">
+        <input type="text" disabled class="form-control  bg-white" id="inputPassword" value="@ViewQuoatInfos.Country">
+    </div>
+</div>
+        <div class="mb-3 row">
+    <label for="" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+        <input type="text" disabled class="form-control  bg-white" id="inputPassword" value="@ViewQuoatInfos.LeadSource">
+    </div>
+</div>
+        <div class="mb-3 row">
+    <label for="" class="col-sm-2 col-form-label">Customer Status</label>
+    <div class="col-sm-10">
+        <input type="text" disabled class="form-control  bg-white" id="inputPassword" value="@ViewQuoatInfos.CustomerStatus">
+    </div>
+</div>
+}
+}
+</div>
+</div>
+@code {
+    [Parameter]
+    public RenderFragment HeaderContent { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    private bool _show = true;
+
+    private void Toggle()
+    {
+        _show = !_show;
+    }
+}
+</section>
+
+<section >
+<div class="card mb-3">
+    <div class="card-body">
+<p style="cursor: pointer; margin-bottom:-4px;" @onclick="Toggle2">
+        @if (_show2)
+        {
+            <p style="margin-bottom:-4px;">Quotation <span>▼</span</p> <!-- Down arrow when expanded -->
+            
+        }
+        else
+        {
+            <p style="margin-bottom:-4px;">Quotation <span>▶</span></p> <!-- Right arrow when collapsed -->
+        }
+        @HeaderContent2
+    </p>
+
+    @if (_show2)
+{
+    @ChildContent2
+    <hr/>
+    <div class="mb-3 row">
+        <label for="VR" class="col-sm-2 col-form-label">Version / Revission</label>
+        <div class="col-sm-10">
+            <InputSelect @bind-Value="@SelectedVR" class="form-select" id="VR">
+                
+                @if (quoatVersion != null)
+                {
+                    foreach (var Lst in quoatVersion)
+                    {
+                        if(SelectedVR == Lst.RevAtt)
+                        {
+                        <option value="@Lst.RevAtt" selected>@Lst.RevAtt</option>
+                    }
+                    else
+                    {
+                        <option value="@Lst.RevAtt">@Lst.RevAtt</option>
+                    }
+                    
+                    }
+                }
+               
+            </InputSelect>
+        </div>
+    </div>
+
+
+    @if(quoatVersion != null)
+{    
+    foreach(var lst in quoatVersion)
+    {
+        if(lst.RevAtt == SelectedVR)
+        {
+         <div class="mb-3 row">
+            <label for="" class="col-sm-2 col-form-label">Refrence</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control bg-white" id="inputPassword" value="@lst.RefreNo">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="" class="col-sm-2 col-form-label">Status</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control bg-white" @bind-value="@lst.Qvstatus">
+                
+                                </div>
+        </div>
+
+        <br />
+        dataItems = System.Text.Json.JsonSerializer.Deserialize<List<QuoatDatum>>(lst.FormData);
+            @if (dataItems != null)
+            {
+                                i = 0;
+                                <table class="table table-responsive table-light table-hover table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th style="width: 5%">#</th>
+                            <th style="width: 50%">Description</th>
+                            <th style="width: 10%">Qty</th>
+                            <th style="width: 10%">Unit</th>
+                            <th style="width: 15%">Unit Price</th>
+                            <th style="width: 20%">Total</th>
+                        </tr>
+                     </thead>
+                <tbody>
+                    @foreach (var item in dataItems)
+                    {
+                        i++;
+                        double qq = Convert.ToDouble(item.Qty) * Convert.ToDouble(item.UnitPrice);
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.Col1</td>
+                        <td>@item.Qty</td>
+                        <td>@item.UnitScal</td>
+                        <td>@item.UnitPrice</td>
+                        <td>@qq QR</td>
+                    </tr>
+                }
+
+                </tbody>
+                <tfoot>
+                    <tr class="table-active">
+                        <td colspan="5" class="text-end fw-bold">Grand Total:</td>
+                        <td class="fw-bold">@lst.GrantTotal.ToString("C")</td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-active">
+                        <td colspan="5" class="text-end fw-bold">Discount:</td>
+                        <td class="fw-bold">@lst.Dscount.ToString("C") </td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-active">
+                        <td colspan="5" class="text-end fw-bold">Net Total:</td>
+                        <td class="fw-bold">@lst.NetTotal.ToString("C")</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+                </table>            
+    }
+    else
+    {
+        <p>Loading data...</p>
+    }
+            
+    
+    break;
+        }
+       
+    }
+}
+}
+</div>
+</div>
+</section>
+
+
+
+<section>
+
+@* @if(ValidToSubmit == "New")
+{ *@
+     @foreach(var lst in quoatVersion)
+    {
+        if(lst.RevAtt == SelectedVR && lst.Qvstatus == "Approved")
+        {
+           
+        <div class="row mb-3 float-end">
+           <a href="/Project/Create/@VRId" class="btn btn-primary text-nowrap">Create Project</a>
+             
+        </div>
+  
+        }
+        else if(lst.RevAtt == SelectedVR && lst.Qvstatus == "New")
+        {
+            <div class="card mb-3">
+    <div class="card-body">
+        <div class="row">
+            <label for="" class="col-3 col-form-label">Select Approval Flow</label>
+            <div class="col-sm-6">
+            <InputSelect @bind-Value="@SelectedDoA" class="form-select" id="DOA">
+                <option value="0" selected>Select</option>
+                @if (ApprovalDoAs != null)
+                {
+                    foreach (var Lst in ApprovalDoAs)
+                    {
+                        
+                        <option value="@Lst.Id">@Lst.DoAname @Lst.Id</option>
+                    }
+                    
+                }
+                
+               
+            </InputSelect>
+        </div>
+            <button class="btn btn-primary col-3" @onclick=@SubmitForApproval> Submit for Approval</button>
+        </div>
+    </div>
+</div>
+        }
+    }
+    
+@* } *@
+
+</section>
+<br/>
+
+@code {
+    [Parameter]
+    public RenderFragment HeaderContent2 { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent2 { get; set; }
+
+    private bool _show2 = true;
+
+    private void Toggle2()
+    {
+        _show2 = !_show2;
+    }
+}
+
+@code {
+    int i = 0;
+
+    private List<QuoatDatum> dataItems;
+
+    [Parameter]
+    public int VRId { get; set; }
+
+    [Parameter]
+    public int QOId { get; set; }
+
+    [Parameter]
+    public int VR { get; set; }
+
+    public int SelectedVR { get; set; }
+    public int SelectedDoA { get; set; }
+    public string ValidToSubmit { get; set; }
+
+    private List<ViewQoVerDt> quoatVersion { get; set; } = new List<ViewQoVerDt>();
+    private List<ApprovalDoA> ApprovalDoAs { get; set; } = new List<ApprovalDoA>();
+    private ViewQuoatInfo ViewQuoatInfos { get; set; } = new();
+
+    //get logged in user Id
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    private int LoggedInUserId;
+
+    //-------------------
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        var authState = await authenticationStateTask;
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            // Get the username (typically the email)
+            // username = user.Identity.Name;
+
+            // Get the user ID from the claims and parse to an integer
+            var userIdString = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (int.TryParse(userIdString, out int id))
+            {
+                LoggedInUserId = id;
+            }
+        }
+        SelectedVR = VR;
+        quoatVersion = await ViewDatass.GetQuoatVerData(QOId);
+        ViewQuoatInfos = await ViewDatass.GetQuoatDetails(QOId);
+        ApprovalDoAs = await loadDatas.GetDoAListAsync(1); // 1 refer to the module is quotation
+    }
+
+    int Result; // catch submission result
+    int SQVR =0; // selected quotation version row number
+    public string Qvstts { get; set; }
+
+    private async Task SubmitForApproval()
+    {
+        //SubmitQuoatVerForApprovalAsync(int SelectedQoVerRowId, int UserId, int DoaID, string ApplicationFor)
+        foreach(var ii in quoatVersion)
+        {
+            if(SelectedVR == ii.RevAtt)
+            {
+                SQVR = ii.Id;
+                Qvstts = ii.Qvstatus;
+            }
+        }
+            if(Qvstts == "New")
+        {
+
+            Result = await InsrtDatas.SubmitQuoatVerForApprovalAsync(SQVR, LoggedInUserId, SelectedDoA, "QuoatVersion");
+
+            if(Result == 200)
+            {
+                await JSRuntime.InvokeVoidAsync("alert", "Success fully subbmitted for approval");
+            }
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("alert", "Somthing went wrong. Please contact your IT Admin");
+            }
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "The status -"+Qvstts+"- is not suitable to submit for approval");
+        }
+
+
+    }
+
+    
+
+}

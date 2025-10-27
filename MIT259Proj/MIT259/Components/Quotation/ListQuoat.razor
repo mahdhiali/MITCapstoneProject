@@ -1,0 +1,75 @@
+﻿@page "/Quotation/View"
+@rendermode InteractiveServer
+@using Eclipse360.Models;
+@using Eclipse360.Data;
+@using Eclipse360.Servicese;
+@using Eclipse360.Servicese.InsertDataaa;
+@using Eclipse360.Servicese.TModel;
+@inject ViewDatas SViewDatas;
+
+@inject NavigationManager Navigation
+
+<div class="container mt-4">
+    <table class="table caption-top table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Refrence No </th>
+                <th scope="col">Version</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Net Total</th>
+                <th scope="col">Last Modefied Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            
+        </tr>
+        </thead>
+         <tbody>
+        @if (quotations == null)
+        {
+
+        }
+        else
+        {
+            int id = 1;
+            foreach (var Lst in quotations)
+            {
+                <tr>
+                     <th scope="row">@id</th>
+                     <td>@Lst.RefreNo</td>
+                     <td>@Lst.RevAtt</td>
+                     <td>@Lst.Fname @Lst.Lname</td>
+                     <td>@Lst.NetTotal</td>
+                     <td>@Lst.CreatedDate</td>
+                     <td>@Lst.Name</td>
+                        <td><a href="/Quotation/View/@Lst.VerRowId/@Lst.Id/@Lst.RevAtt">View</a></td>
+                </tr>
+                id++;
+            }
+        }
+       </tbody>
+        </table>
+        
+</div>
+
+@code {
+    // private readonly Eclipse360Context _db;
+
+    // public class ListAllQuoat
+    // {
+    //     public int Id { get; set; }
+    //     public string RefranceNo { get; set; }
+    //     public int RevAtt { get; set; }
+    //     public decimal NetTotal { get; set; }
+    //     public string FName { get; set; }
+    //     public string LName { get; set; }
+    //     public string Status { get; set; }
+    // }
+
+    private List<ListAllQuoat> quotations { get; set; } = new List<ListAllQuoat>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        quotations = await SViewDatas.GetQuotationViewsAsync();
+    }
+}

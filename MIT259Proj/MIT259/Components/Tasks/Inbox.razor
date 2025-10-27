@@ -1,0 +1,79 @@
+﻿@rendermode InteractiveServer
+@using Eclipse360.Models
+@using Eclipse360.Servicese
+@inject LoadData loadDatas
+
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Refrence No</td>
+            <td>Status</td>
+            <td>Created Date</td>
+            <td>Open</td>
+        </tr>
+    </thead>
+    <tbody>
+
+@if(viewAllMyPendingApprovals != null)
+{
+            int ii = 1;
+            foreach(var lst in viewAllMyPendingApprovals)
+    {
+        
+        <tr>
+        <td>@ii</td>
+        <td>@lst.QvRefreNo</td>
+        <td>@lst.ApplicationStatus</td>
+        <td>@lst.CreatedDate</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-info" href="/MyTasks/Inbox/View/QV/@lst.Expr1/@lst.ApprovalId/@lst.QuoatId/@lst.QuVerid/@lst.QvId">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </td>
+        <td></td>
+                </tr>
+                ii++;
+            }
+}
+
+ @* <td><a href="/Quotation/View/@Lst.VerRowId/@Lst.Id/@Lst.RevAtt">View</a></td> *@
+    </tbody>
+</table>
+
+
+@code{
+    
+    private List<ViewAllMyPendingApproval> viewAllMyPendingApprovals = new List<ViewAllMyPendingApproval>();
+
+    //get logged in user Id
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    private int LoggedInUserId;
+
+    //-------------------
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authenticationStateTask;
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            // Get the username (typically the email)
+            // username = user.Identity.Name;
+
+            // Get the user ID from the claims and parse to an integer
+            var userIdString = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (int.TryParse(userIdString, out int id))
+            {
+                LoggedInUserId = id;
+            }
+        }
+        viewAllMyPendingApprovals = await loadDatas.ViewAllMyPendingApprovalAsync(LoggedInUserId);
+    }
+}

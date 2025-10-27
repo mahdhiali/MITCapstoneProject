@@ -1,0 +1,332 @@
+﻿@implements IDisposable
+@rendermode InteractiveServer
+
+
+@inject NavigationManager NavigationManager
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href=""><img style="height : 45px; margin-top:-7px" src="/Assets/0001.png" /></a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+       <AuthorizeView>
+            <Authorized>
+                
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="">
+                        <span class="bii bi-house-fill" aria-hidden="true"></span> Home
+                    </NavLink>
+                </div>
+
+                <div class="nav-item px-3">
+                    <button class="nav-link down-arrow @(GetActiveClass("Complaints"))" @onclick="@(() => ExpandCode = "Complaints")">
+
+                        <span class="bii bi-chat-left-text"></span> Complaints
+
+                    </button>
+
+                </div>
+                @if (ExpandCode == "Complaints")
+                {
+                    if (P_Complaints)
+                    {
+                        P_Complaints = false;
+                    }
+                    else
+                    {
+                        P_Complaints = true;
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="Projects">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> SuProjectsB
+                            </NavLink>
+                        </div>
+                    }
+
+                }
+
+
+
+                <div class="nav-item px-3">
+                    <button class="nav-link down-arrow @(GetActiveClass("Customer"))" @onclick="@(() => ExpandCode = "Customer")">
+
+                        <span class="bii bi-people-fill" aria-hidden="true"></span> Customer
+                    </button>
+                </div>
+                @if (ExpandCode == "Customer")
+                {
+                    if (P_Customer)
+                    {
+                        P_Customer = false;
+                    }
+                    else
+                    {
+                        P_Customer = true;
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="/Customer/Add">
+                                <span class="bii bi-person-fill-add" aria-hidden="true"></span> Add Customer
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="/ViewCustomer">
+                                <span class="bii bi-person-lines-fill" aria-hidden="true"></span> View Customer
+                            </NavLink>
+                        </div>
+                    }
+
+                }
+
+
+
+                <div class="nav-item px-3">
+                    <button class="nav-link down-arrow @(GetActiveClass("Invoices"))" @onclick="@(() => ExpandCode = "Invoices")">
+
+                        <span class="bii bi-file-earmark-text" aria-hidden="true"></span> Invoices
+                    </button>
+                </div>
+                @if (ExpandCode == "Invoices")
+                {
+                    if (P_Invoices)
+                    {
+                        P_Invoices = false;
+                    }
+                    else
+                    {
+                        P_Invoices = true;
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="Projects">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> SuProjectsB
+                            </NavLink>
+                        </div>
+                    }
+
+                }
+
+                <div class="nav-item px-3">
+                    <button class="nav-link down-arrow @(GetActiveClass("Projects"))" @onclick="@(() => ExpandCode = "Projects")">
+
+                        <span class="bii bi-kanban-fill" aria-hidden="true"></span> Projects
+
+                    </button>
+
+                </div>
+                @code {
+                    private string GetActiveClass(string section)
+                    {
+                        return ExpandCode == section ? "expand" : "";
+                    }
+                }
+
+                @if (ExpandCode == "Projects")
+                {
+                    if (P_Projects)
+                    {
+                        P_Projects = false;
+                    }
+                    else
+                    {
+                        P_Projects = true;
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="/Project/Create">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Create
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="/Project/View">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> View
+                            </NavLink>
+                        </div>
+                    }
+
+                }
+
+                <div class="nav-item px-3">
+                    <button class="nav-link down-arrow @(GetActiveClass("Quotations"))" @onclick="@(() => ExpandCode = "Quotations")">
+                        <span class="bii bi-file-earmark-text" aria-hidden="true"></span> Quotations
+                    </button>
+                </div>
+                @if (ExpandCode == "Quotations")
+                {
+                    if (P_Quotations)
+                    {
+                        P_Quotations = false;
+                    }
+                    else
+                    {
+                        P_Quotations = true;
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="/Quotation/Add">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Create
+                            </NavLink>
+                        </div>
+
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="/Quotation/View">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> View
+                            </NavLink>
+                        </div>
+                    }
+
+                }
+
+
+
+                <div class="nav-item px-3">
+                    <button class="nav-link down-arrow @(GetActiveClass("Recipts"))" @onclick="@(() => ExpandCode = "Recipts")">
+                        <span class="bii bi-receipt-cutoff" aria-hidden="true"></span> Recipts
+                    </button>
+                </div>
+                @if (ExpandCode == "Recipts")
+                {
+                    if (P_Recipts)
+                    {
+                        P_Recipts = false;
+                    }
+                    else
+                    {
+                        P_Recipts = true;
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="Projects">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Create
+                            </NavLink>
+                        </div>
+                
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="Projects">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> View
+                            </NavLink>
+                        </div>
+                    }
+
+                }
+
+
+
+                <div class="nav-item px-3">
+                    <button class="nav-link down-arrow @(GetActiveClass("Task"))" @onclick="@(() => ExpandCode = "Task")">
+                        <span class="bii bi-list-task" aria-hidden="true"></span> Task
+                    </button>
+                </div>
+                @if (ExpandCode == "Task")
+                {
+                    if (P_Task)
+                    {
+                        P_Task = false;
+                    }
+                    else
+                    {
+                        P_Task = true;
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="/MyTasks">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> My Task
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="Projects">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Task
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="Projects">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> View All Task
+                            </NavLink>
+                        </div>
+
+                    }
+
+                }
+
+                <div class="nav-item px-3">
+                    <button class="nav-link down-arrow @(GetActiveClass("Reports"))" @onclick="@(() => ExpandCode = "Reports")">
+                        <span class="bii bi-file-earmark-spreadsheet" aria-hidden="true"></span> Reports
+                    </button>
+                </div>
+                @if (ExpandCode == "Reports")
+                {
+                    if (P_Reports)
+                    {
+                        P_Reports = false;
+                    }
+                    else
+                    {
+                        P_Reports = true;
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="Task">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Standard
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-4">
+                            <NavLink class="nav-link sub-mu-bg" href="Task">
+                                <span class="bii bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Custom Reports
+                            </NavLink>
+                        </div>
+                    }
+
+                }
+
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link">
+                        <span class="bii bi-gear-fill" aria-hidden="true"></span> Settings
+                    </NavLink>
+                </div>
+
+                
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Account/Manage">
+                        <span class="bii bi-person-fill-nav-menu" aria-hidden="true"></span> @context.User.Identity?.Name
+                    </NavLink>
+                </div>
+               
+            </Authorized>
+            @* <NotAuthorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Account/Register">
+                        <span class="bii bi-person-nav-menu" aria-hidden="true"></span> Register
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Account/Login">
+                        <span class="bii bi-person-badge-nav-menu" aria-hidden="true"></span> Login
+                    </NavLink>
+                </div>
+            </NotAuthorized> *@
+        </AuthorizeView>
+    </nav>
+</div>
+
+@code {
+    private string? currentUrl;
+
+    protected override void OnInitialized()
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+
+    string ExpandCode { get; set; } = null;
+    bool P_Complaints = false;
+    bool P_Customer = false;
+    bool P_Invoices = false;
+    bool P_Projects = false;
+    bool P_Quotations = false;
+    bool P_Recipts = false;
+    bool P_Reports = false;
+    bool P_Settings = false;
+    bool P_Task = false;
+}
+

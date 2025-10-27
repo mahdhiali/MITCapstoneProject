@@ -1,0 +1,27 @@
+﻿@page "/Project/View"
+@page "/Project/View/{ProjId:int?}"
+
+@rendermode InteractiveServer
+@using Eclipse360.Models;
+@using Eclipse360.Data;
+@using Eclipse360.Servicese;
+@using Eclipse360.Servicese.InsertDataaa;
+@inject ViewDatas ViewDatass;
+@inject LoadData loadDatas;
+@inject InsrtData InsrtDatas;
+@inject SearchData SearchDatas;
+
+@inject IJSRuntime JSRuntime
+@inject NavigationManager Navigation
+@using BlazorBootstrap;
+@using System.Collections.Generic;
+@using Microsoft.AspNetCore.Authorization
+
+
+@attribute [Authorize]
+
+
+@code{
+    [Parameter]
+    public int ProjId { get; set; }
+}

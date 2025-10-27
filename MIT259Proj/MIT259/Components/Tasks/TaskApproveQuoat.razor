@@ -1,0 +1,253 @@
+﻿@page "/MyTasks/Inbox/View/QV/{ID:int}/{APPId:int}/{QVOID:int}/{QVRID:int}/{QvId:int}"
+
+@rendermode InteractiveServer
+@using Eclipse360.Models;
+@using Eclipse360.Data;
+@using Eclipse360.Servicese;
+@using Eclipse360.Servicese.InsertDataaa;
+@inject ViewDatas ViewDatass;
+@inject LoadData loadDatas;
+@inject InsrtData InsrtDatas;
+@inject IJSRuntime JSRuntime
+@inject NavigationManager Navigation
+
+
+
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+
+<div class="card">
+    <div class="card-body">
+        @foreach(var lst in quoatVersion)
+        {
+        if(lst.RevAtt == QVRID)
+            {
+                <div class="row">
+                    <div class="col-4">
+                        @* <label for="RefNo">Refrence No</label>
+                        <input type="text" value="@lst.RefreNo" /> *@
+                        <div class="form-group">
+                            <label style="font-size:.8rem">Refrence No</label><br />
+                            <b style="color:brown"><label >@lst.RefreNo</label></b>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label style="font-size:.8rem" for="RefNo">Current Status</label><br />
+                            <b style="color:brown"><label>@lst.Qvstatus" </label></b>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label style="font-size:.8rem" for="RefNo">Created Date</label><br />
+                        <b style="color:brown"><label >@lst.CreatedDate" </label></b>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        
+    </div>
+</div>
+<br />
+
+   <div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6"
+            <label for="">Customer Id</label>
+                <input type="text" disabled class="form-control bg-white" id="inputPassword" value="@ViewQuoatInfos.Fname @ViewQuoatInfos.Lname">
+            </div>
+            <div class="col-md-6"
+            <label for="">Status</label>
+                <input type="text" disabled class="form-control bg-white" id="inputPassword" value="@ViewQuoatInfos.Fname @ViewQuoatInfos.Lname">
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-12"
+            <label for="">Full Name</label>
+            
+                <input type="text" disabled class="form-control bg-white" id="inputPassword" value="@ViewQuoatInfos.Fname @ViewQuoatInfos.Lname">
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6"
+            <label >Mobile No</label>
+                <input type="text" disabled class="form-control bg-white" id="inputPassword" value="@ViewQuoatInfos.Mobile1">
+            </div>
+        <div class="col-md-6"
+    <label >Country</label>
+        <input type="text" disabled class="form-control bg-white" id="inputPassword" value="@ViewQuoatInfos.Country">
+</div>
+</div>
+        <div class="row">
+        <div class="col-md-6"
+    <label >Name</label>
+        <input type="text" disabled class="form-control bg-white" id="inputPassword" value="@ViewQuoatInfos.LeadSource">
+</div>
+        <div class="col-md-6"
+    <label >Customer Status</label>
+        <input type="text" disabled class="form-control bg-white" id="inputPassword" value="@ViewQuoatInfos.CustomerStatus">
+</div>
+</div><br/>
+ @foreach(var lst in quoatVersion)
+    {
+        if(lst.RevAtt == QVRID)
+        {
+        dataItems = System.Text.Json.JsonSerializer.Deserialize<List<QuoatDatum>>(lst.FormData);
+            @if (dataItems != null)
+            {
+                                i = 0;
+                                <table class="table table-responsive table-light table-hover table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th style="width: 5%">#</th>
+                            <th style="width: 50%">Description</th>
+                            <th style="width: 10%">Qty</th>
+                            <th style="width: 10%">Unit</th>
+                            <th style="width: 15%">Unit Price</th>
+                            <th style="width: 20%">Total</th>
+                        </tr>
+                     </thead>
+                <tbody>
+                    @foreach (var item in dataItems)
+                    {
+                        i++;
+                        double qq = Convert.ToDouble(item.Qty) * Convert.ToDouble(item.UnitPrice);
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.Col1</td>
+                        <td>@item.Qty</td>
+                        <td>@item.UnitScal</td>
+                        <td>@item.UnitPrice</td>
+                        <td>@qq QR</td>
+                    </tr>
+                }
+
+                </tbody>
+                <tfoot>
+                    <tr class="table-active">
+                        <td colspan="5" class="text-end fw-bold">Grand Total:</td>
+                        <td class="fw-bold">@lst.GrantTotal.ToString("C")</td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-active">
+                        <td colspan="5" class="text-end fw-bold">Discount:</td>
+                        <td class="fw-bold">@lst.Dscount.ToString("C") </td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-active">
+                        <td colspan="5" class="text-end fw-bold">Net Total:</td>
+                        <td class="fw-bold">@lst.NetTotal.ToString("C")</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+                </table>            
+    }
+    else
+    {
+        <p>Loading data...</p>
+    }
+    }
+    }
+    </div>
+</div>
+
+<br/>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+            <label for="txtcomment">Comment</label>
+            <textarea class="form-control" @bind="@ApprovalComment" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+            </div>
+            <div class="col-2">
+                <button type="button" @onclick="@ApprovalActionApproved" class="btn btn-primary">Approve</button>
+            </div>
+            <div class="col-2">
+                <button type="button" @onclick="@ApprovalActionRejected" class="btn btn-secondary">Reject</button>
+            </div>
+                    
+        </div>
+
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int APPId { get; set; } // Approval Id
+
+    [Parameter]
+    public int ID { get; set; }// task row id
+
+    [Parameter]
+    public int QVOID { get; set; }
+    [Parameter]
+    public int QVRID { get; set; }
+    [Parameter]
+    public int QvId { get; set; }
+
+    //get logged in user Id
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    int i = 0;
+
+    private int LoggedInUserId;
+
+    public string ApprovalComment { get; set; }
+
+    //-------------------
+
+    private List<ViewQoVerDt> quoatVersion { get; set; } = new List<ViewQoVerDt>();
+    private ViewQuoatInfo ViewQuoatInfos { get; set; } = new();
+    private List<QuoatDatum> dataItems;
+
+    private int Rslt { get; set; }
+    private async Task ApprovalActionApproved()
+    {
+        Rslt = await InsrtDatas.SubmitQuoatApprovalAsync(ApprovalComment, 1, ID, QvId, QVOID, APPId, LoggedInUserId); // 1 mean approved
+        await JSRuntime.InvokeVoidAsync("alert", "Your action has been success fully recorded");
+        Navigation.NavigateTo("/MyTasks");
+    }
+    private async Task ApprovalActionRejected()
+    {
+        Rslt = await InsrtDatas.SubmitQuoatApprovalAsync(ApprovalComment, 0, ID, QvId, QVOID, APPId, LoggedInUserId); // 0 mean rejected
+
+        await JSRuntime.InvokeVoidAsync("alert", "Your action has been success fully recorded");
+        Navigation.NavigateTo("/MyTasks");
+    }
+
+     protected override async Task OnInitializedAsync()
+    {
+
+        var authState = await authenticationStateTask;
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            // Get the username (typically the email)
+            // username = user.Identity.Name;
+
+            // Get the user ID from the claims and parse to an integer
+            var userIdString = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (int.TryParse(userIdString, out int id))
+            {
+                LoggedInUserId = id;
+            }
+            quoatVersion = await ViewDatass.GetQuoatVerData(QVOID);
+            ViewQuoatInfos = await ViewDatass.GetQuoatDetails(QVOID);
+        }
+       
+    }
+}

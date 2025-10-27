@@ -1,0 +1,332 @@
+﻿@page "/Quotation/Add"
+@rendermode InteractiveServer
+@using Eclipse360.Models;
+@using Eclipse360.Servicese;
+@using Eclipse360.Servicese.InsertDataaa;
+@inject LoadDictData EcDictionary;
+@inject InsrtData InsrtDatas;
+@inject LoadData LoadDatas;
+@inject NavigationManager Navigation
+@using System.Text.Json;
+@using Microsoft.AspNetCore.Authorization
+@inject IJSRuntime JSRuntime
+@attribute [Authorize]
+
+
+
+<h3>CreateQuoat</h3>
+
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label required">Customer</label>
+        <div class="col-sm-10">
+            <InputSelect @bind-Value="@quotation.CusId" class="form-select" id="currentStatus">
+                <option value="0" selected>Select</option>
+                @if (CustomerLists != null)
+                {
+                    foreach (var Lst in CustomerLists)
+                    {
+                        <option value="@Lst.Id">@Lst.Fname @Lst.Lname</option>
+                    }
+                }
+                
+            </InputSelect>
+        </div>
+        
+    </div>
+
+<div class="container mt-4">
+    @* <h3 class="mb-4 text-primary">Quotation Management</h3> *@
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Add New Item</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <input type="text" class="form-control" @bind="@ItemDesc" placeholder="Item description" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label class="form-label">Qty</label>
+                        <input type="number" class="form-control" @bind="@Qty" min="1" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label class="form-label">Unit</label>
+                        <input type="text" class="form-control" @bind="@ItUnit" placeholder="e.g., pcs, kg" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label class="form-label">Unit Price</label>
+                        <input type="number" class="form-control" @bind="@UnitPrice" step="0.01" min="0" />
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <div class="mb-3 w-100">
+                        <button class="btn btn-success w-100" @onclick="AddNewItem">
+                            <i class="fas fa-plus"></i> Add New Value
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="mb-0">Quotation Items</h5>
+        </div>
+        <div class="card-body">
+            @if (!models.Any())
+            {
+                <div class="text-center py-5 text-muted">
+                    <i class="fas fa-file-invoice fa-3x mb-3"></i>
+                    <p>No items in quotation. Add items using the form above.</p>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th style="width: 5%">#</th>
+                                <th style="width: 45%">Description</th>
+                                <th style="width: 10%">Qty</th>
+                                <th style="width: 10%">Unit</th>
+                                <th style="width: 15%">Unit Price</th>
+                                <th style="width: 15%">Total</th>
+                                <th style="width: 10%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var (model, index) in models.Select((m, i) => (m, i)))
+                            {
+                                <tr>
+                                    <td class="fw-bold">@(index + 1)</td>
+                                    <td>@model.ItemDesc</td>
+                                    <td>@model.Qty</td>
+                                    <td>@model.ItUnit</td>
+                                    <td>@model.UnitPrice.ToString("C")</td>
+                                    <td class="fw-bold">@((model.Qty * model.UnitPrice).ToString("C"))</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-danger" @onclick="() => DeleteItem(model)">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-active">
+                                <td colspan="5" class="text-end fw-bold">Grand Total:</td>
+                                <td class="fw-bold">@GrandTotal.ToString("C")</td>
+                                <td></td>
+                            </tr>
+                            <tr class="table-active">
+                                <td colspan="5" class="text-end fw-bold">Discount:</td>
+                                <td class="fw-bold"><input @bind="@Discount" type="number" name="txt_discount"/> </td>
+                                <td></td>
+                            </tr>
+                            <tr class="table-active">
+                                <td colspan="5" class="text-end fw-bold">Net Total:</td>
+                                <td class="fw-bold">@NetTotal.ToString("C")</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+
+    @* @if (showAlert)
+    {
+        <div class="alert @alertClass alert-dismissible fade show mt-3" role="alert">
+            @alertMessage
+            <button type="button" class="btn-close" @onclick="DismissAlert"></button>
+        </div>
+    } *@
+
+   @*  <div class="mt-4">
+        <h5>Debug Information (models list contents):</h5>
+        <pre>@GetModelsJson()</pre>
+    </div> *@
+
+    <button type="submit" @onclick="SaveData" class="btn btn-primary mt-3">Save</button>
+
+</div>
+
+@code {
+    private string ItemDesc = "";
+    private string Qty = "1";
+    private string ItUnit = "pcs";
+    private string UnitPrice = "0";
+
+    private bool showAlert = false;
+    private string alertMessage = "";
+    private string alertClass = "alert-success";
+
+    private List<Model> models = new();
+
+    private double GrandTotal => models.Sum(m => m.Qty * m.UnitPrice);
+    private double Discount = 0;
+    private double NetTotal => GrandTotal - Discount;
+
+
+    // private Quotation quotations { get; set; } = new Quotation();
+
+    // private void CalNetTotal()
+    // {
+    //     NetTotal = GrandTotal - NetTotal;
+    // }
+
+    private Quotation quotation { get; set; } = new Quotation();
+    private List<Customer> CustomerLists = new();
+
+    private List<QuoatDatum> quoatData { get; set; } = new List<QuoatDatum>();
+    private List<QOData> QODatas { get; set; } = new List<QOData>();
+
+    private async Task SaveData()
+    {
+        quotation.Status = 7;
+        quotation.CreatedBy = LoggedInUserId;
+        quotation.CreatedDate = DateTime.UtcNow;
+
+
+
+        QODatas.Clear();
+        int RNo = 1;
+        foreach (var ddd in models)
+        {
+            QODatas.Add(new QOData
+            {
+                Id = RNo,
+                Col1 = ddd.ItemDesc, 
+                Qty = ddd.Qty, 
+                UnitScal = ddd.ItUnit, 
+                UnitPrice = (decimal)ddd.UnitPrice 
+            });
+
+            RNo++;
+        }
+
+        string QDataInJS = JsonSerializer.Serialize(QODatas);
+
+        int QuotationVerId = await InsrtDatas.SaveQuotationWithVersionAsync(quotation, (decimal)GrandTotal, (decimal)NetTotal, (decimal)Discount, QDataInJS);
+        await JSRuntime.InvokeVoidAsync("alert", "Record success fully created");
+        Navigation.NavigateTo("/");
+
+    }
+
+
+
+    //get logged in user Id
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    private int LoggedInUserId;
+
+    //-------------------
+
+    protected override async Task OnInitializedAsync()
+    {
+        // try
+        // {
+
+        var authState = await authenticationStateTask;
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            // Get the username (typically the email)
+            // username = user.Identity.Name;
+
+            // Get the user ID from the claims and parse to an integer
+            var userIdString = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (int.TryParse(userIdString, out int id))
+            {
+                LoggedInUserId = id;
+            }
+            CustomerLists = await LoadDatas.GetCustomerListAsync();
+        }
+        
+    }
+
+
+
+    private void AddNewItem()
+    {
+        try
+        {
+
+       
+        if (string.IsNullOrWhiteSpace(ItemDesc))
+        {
+            ShowAlert("Please enter a description", "alert-danger");
+            return;
+        }
+
+        if (!int.TryParse(Qty, out int qty) || qty <= 0)
+        {
+            ShowAlert("Please enter a valid quantity", "alert-danger");
+            return;
+        }
+
+        if (!double.TryParse(UnitPrice, out double unitPrice) || unitPrice < 0)
+        {
+            ShowAlert("Please enter a valid unit price", "alert-danger");
+            return;
+        }
+
+        models.Add(new Model
+        {
+            ItemDesc = ItemDesc,
+            Qty = qty,
+            ItUnit = ItUnit,
+            UnitPrice = unitPrice
+        });
+
+        // Clear the form
+        ItemDesc = "";
+        Qty = "1";
+        ItUnit = "pcs";
+        UnitPrice = "0";
+
+        ShowAlert("Item added successfully!", "alert-success");
+        }
+        catch
+        {
+
+        }
+    }
+
+    private void DeleteItem(Model model)
+    {
+        models.Remove(model);
+        ShowAlert("Item deleted successfully!", "alert-info");
+    }
+
+    private void ShowAlert(string message, string alertType)
+    {
+        alertMessage = message;
+        alertClass = alertType;
+        showAlert = true;
+    }
+
+    
+
+    public class Model
+    {
+        public string ItemDesc { get; set; } = "";
+        public int Qty { get; set; } = 1;
+        public string ItUnit { get; set; } = "pcs";
+        public double UnitPrice { get; set; } = 0;
+    }
+}

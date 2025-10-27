@@ -1,0 +1,116 @@
+﻿@page "/"
+@using Eclipse360.Models;
+@using Eclipse360.Data;
+@using Eclipse360.Servicese;
+@inject ViewDatas ViewDatass;
+@inject LoadData loadDatas;
+@inject SearchData SearchDatas;
+@rendermode InteractiveServer
+
+<style>
+    .search-input-container .input-group {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-menu {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .dropdown-item.active {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .search-stats .badge {
+        font-size: 0.75em;
+        padding: 0.35em 0.65em;
+    }
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .dropdown-toggle span {
+            display: none !important;
+        }
+    }
+</style>
+
+<AuthorizeView>
+    <Authorized>
+       
+                <div class="input-group">
+                    <!-- Filter Dropdown -->
+            <select class="form-select" @bind="Selectedoption" style="max-width: 180px;">
+                <option value="Customer" >Customer</option>
+                <option value="Quotation">Quotation</option>
+                <option value="Project" selected>Project</option>
+                <option value="Invoice">Invoice</option>
+                <option value="Complaint">Complaint</option>
+                    </select>
+
+                    <!-- Search Input -->
+            <input type="text" @bind="@SearchText" class="form-control" placeholder="Search ...">
+
+                    <!-- Search Button -->
+            <button class="btn btn-primary" @onclick="SearchItems">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+
+
+                 @if(projects != null)
+                {
+
+                    <p>Search result id @RowCnt</p>
+            int id = 1;
+                    
+            <table class="table" id="TblProject">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Project Name</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Current status</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    @foreach(var lst in projects)
+                    {
+                        <tr>
+                            <td>@id</td>
+                            <td>@lst.Title</td>
+                            <td>@lst.Code</td>
+                            <td>In Progress</td>
+                            <td><a href="/Project/View/@lst.Id" class="btn btn-primary">Open</a></td>
+                        </tr>
+                        id++;
+                    }
+                </tbody>
+            </table>
+        }
+        
+
+
+        @code{
+            public string Selectedoption { get; set; } // catch selectd module
+            public string SearchText { get; set; }
+
+        public int RowCnt = 0;
+
+        public List<Project> projects = new List<Project>();
+
+            private async Task SearchItems()
+            {
+            projects = await SearchDatas.SearchProject(SearchText);
+
+            RowCnt = projects.Count();
+            }
+        }
+    </Authorized>
+    @* <NotAuthorized>
+        <br/>
+        <Eclipse360.Components.Account.Pages.Login/>
+    </NotAuthorized> *@
+</AuthorizeView>

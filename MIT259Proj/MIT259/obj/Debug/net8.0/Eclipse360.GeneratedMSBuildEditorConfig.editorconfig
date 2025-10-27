@@ -1,0 +1,261 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Eclipse360
+build_property.RootNamespace = Eclipse360
+build_property.ProjectDir = D:\Eclipse\Eclipse360 ProTrack CRM\Eclipse360-ProTrack-CRM\Proj Src\Dev2025-Aug-11\New folder (2)\Eclipse360\Eclipse360\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Eclipse\Eclipse360 ProTrack CRM\Eclipse360-ProTrack-CRM\Proj Src\Dev2025-Aug-11\New folder (2)\Eclipse360\Eclipse360
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Component.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/AccessDenied.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEFjY2Vzc0RlbmllZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/ConfirmEmail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXENvbmZpcm1FbWFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/ConfirmEmailChange.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXENvbmZpcm1FbWFpbENoYW5nZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/ExternalLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEV4dGVybmFsTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/ForgotPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEZvcmdvdFBhc3N3b3JkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/ForgotPasswordConfirmation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEZvcmdvdFBhc3N3b3JkQ29uZmlybWF0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/InvalidPasswordReset.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEludmFsaWRQYXNzd29yZFJlc2V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/InvalidUser.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXEludmFsaWRVc2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Lockout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvY2tvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/LoginWith2fa.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvZ2luV2l0aDJmYS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/LoginWithRecoveryCode.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXExvZ2luV2l0aFJlY292ZXJ5Q29kZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/ChangePassword.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxDaGFuZ2VQYXNzd29yZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/DeletePersonalData.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxEZWxldGVQZXJzb25hbERhdGEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/Disable2fa.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxEaXNhYmxlMmZhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/Email.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxFbWFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/EnableAuthenticator.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxFbmFibGVBdXRoZW50aWNhdG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/ExternalLogins.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxFeHRlcm5hbExvZ2lucy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/GenerateRecoveryCodes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxHZW5lcmF0ZVJlY292ZXJ5Q29kZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/PersonalData.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxQZXJzb25hbERhdGEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/ResetAuthenticator.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxSZXNldEF1dGhlbnRpY2F0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/SetPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxTZXRQYXNzd29yZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/TwoFactorAuthentication.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxUd29GYWN0b3JBdXRoZW50aWNhdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Manage/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXE1hbmFnZVxfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlZ2lzdGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/RegisterConfirmation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlZ2lzdGVyQ29uZmlybWF0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/ResendEmailConfirmation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlc2VuZEVtYWlsQ29uZmlybWF0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/ResetPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlc2V0UGFzc3dvcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/ResetPasswordConfirmation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXFJlc2V0UGFzc3dvcmRDb25maXJtYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Pages/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFBhZ2VzXF9JbXBvcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Shared/AccountLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxBY2NvdW50TGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Shared/ExternalLoginPicker.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxFeHRlcm5hbExvZ2luUGlja2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Shared/ManageLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxNYW5hZ2VMYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Shared/ManageNavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxNYW5hZ2VOYXZNZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Shared/ShowRecoveryCodes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxTaG93UmVjb3ZlcnlDb2Rlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Account/Shared/StatusMessage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFNoYXJlZFxTdGF0dXNNZXNzYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Cus/CreateCus.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDdXNcQ3JlYXRlQ3VzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Cus/ViewCustomers.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDdXNcVmlld0N1c3RvbWVycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Layout/Authorized.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcQXV0aG9yaXplZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Layout/NotAuthorized.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTm90QXV0aG9yaXplZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Project/CreateProject.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9qZWN0XENyZWF0ZVByb2plY3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Project/ViewProjects.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9qZWN0XFZpZXdQcm9qZWN0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Quotation/CreateQuoat.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xRdW90YXRpb25cQ3JlYXRlUXVvYXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Quotation/ListQuoat.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xRdW90YXRpb25cTGlzdFF1b2F0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Quotation/ViewQuoatDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xRdW90YXRpb25cVmlld1F1b2F0RGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Tasks/Inbox.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUYXNrc1xJbmJveC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Tasks/MyTask.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUYXNrc1xNeVRhc2sucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Tasks/TaskApproveQuoat.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUYXNrc1xUYXNrQXBwcm92ZVF1b2F0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Tasks/TaskDetils.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUYXNrc1xUYXNrRGV0aWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-rr17im9r1c
+
+[D:/Eclipse/Eclipse360 ProTrack CRM/Eclipse360-ProTrack-CRM/Proj Src/Dev2025-Aug-11/New folder (2)/Eclipse360/Eclipse360/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-jrk4u8r2o8

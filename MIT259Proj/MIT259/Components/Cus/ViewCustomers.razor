@@ -1,0 +1,47 @@
+﻿@page "/ViewCustomer"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<h3>Current User Information</h3>
+
+@* @if (LoggedInUserId.HasValue)
+{
+ *@    @* <p>Username: @username</p> *@
+    <p>User ID: @LoggedInUserId</p>
+@* }
+else
+{
+    <p>User is not authenticated or could not retrieve information.</p>
+} *@
+
+@code {
+
+    //get logged in user Id
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    private int LoggedInUserId;
+
+    //-------------------
+
+    // private string? username;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authenticationStateTask;
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            // Get the username (typically the email)
+            // username = user.Identity.Name;
+
+            // Get the user ID from the claims and parse to an integer
+            var userIdString = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (int.TryParse(userIdString, out int id))
+            {
+                LoggedInUserId = id;
+            }
+        }
+    }
+}

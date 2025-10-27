@@ -1,0 +1,260 @@
+﻿@page "/Customer/Add"
+@rendermode InteractiveServer
+@using Eclipse360.Models;
+@using Eclipse360.Servicese;
+@using Eclipse360.Servicese.InsertDataaa;
+@inject LoadDictData EcDictionary;
+@inject InsrtData InsrtDatas;
+@inject NavigationManager Navigation
+@using Microsoft.AspNetCore.Authorization
+@inject IJSRuntime JSRuntime
+@attribute [Authorize]
+
+<h3>Add New Customer</h3>
+<hr />
+<EditForm Model="@NewCustomer" FormName="NewCustomer" OnValidSubmit="@HandleValidSubmit" @key="@NewCustomer">
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label required">First Name</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.Fname" type="text" class="form-control" id="firstName" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="middleName" class="col-sm-2 col-form-label">Middle Name</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.Mname" type="text" class="form-control" id="middleName" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="lastName" class="col-sm-2 col-form-label required">Last Name</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.Lname" type="text" class="form-control" id="lastName" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+        <div class="col-sm-10">
+            <InputSelect @bind-Value="@NewCustomer.Gender" class="form-select" id="gender">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </InputSelect>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Nationality" class="col-sm-2 col-form-label">Nationality</label>
+        <div class="col-sm-10">
+            <InputSelect @bind-Value="@NewCustomer.Nationality" class="form-select" id="Nationality">
+                <option value="">Select Nationality</option>
+                @if (countryLists == null)
+                {
+
+                }
+                else
+                {
+                    foreach (var Lst in countryLists)
+                    {
+                        <option value="@Lst.Id">@Lst.Enname</option>
+                    }
+                }
+            </InputSelect>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="address" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.Address" type="text" class="form-control" id="address" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="state" class="col-sm-2 col-form-label">State / Province</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.StateProvince" type="text" class="form-control" id="state" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="city" class="col-sm-2 col-form-label">City</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.City" type="text" class="form-control" id="city" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Country" class="col-sm-2 col-form-label">Country</label>
+        <div class="col-sm-10">
+            <InputSelect @bind-Value="@NewCustomer.Country" class="form-select" id="Country">
+                <option value="">Select Country</option>
+                @if (countryLists == null)
+                {
+
+                }
+                else
+                {
+                    foreach (var Lst in countryLists)
+                    {
+                        <option value="@Lst.Id">@Lst.Enname</option>
+                    }
+                }
+            </InputSelect>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="postalCode" class="col-sm-2 col-form-label">Postal Code</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.PostalCode" type="text" class="form-control" id="postalCode" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-10">
+            <InputNumber @bind-Value="@NewCustomer.Phone" type="tel" class="form-control" id="phone" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="mobile1" class="col-sm-2 col-form-label required">Mobile 1</label>
+        <div class="col-sm-10">
+            <InputNumber @bind-Value="@NewCustomer.Mobile1" type="tel" class="form-control" id="mobile1" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="mobile2" class="col-sm-2 col-form-label">Mobile 2</label>
+        <div class="col-sm-10">
+            <InputNumber @bind-Value="@NewCustomer.Mobile2" type="tel" class="form-control" id="mobile2" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label required">E-Mail</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.Email" type="email" class="form-control" id="email" />
+        </div>
+    </div>
+    @*  <div class="form-group row">
+        <label for="dob" class="col-sm-2 col-form-label">Date of Birth</label>
+        <div class="col-sm-10">
+            <InputDate @bind-Value="@NewCustomer.DateOfBirth" class="form-control" id="dob" />
+        </div>
+    </div> *@
+    <div class="form-group row">
+        <label for="nationalId" class="col-sm-2 col-form-label">National Identity No</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.Nicno" type="text" class="form-control" id="nationalId" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="passport" class="col-sm-2 col-form-label">Passport</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.PassportNo" type="text" class="form-control" id="passport" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="leadSource" class="col-sm-2 col-form-label required">Lead Source</label>
+        <div class="col-sm-10">
+            <InputSelect @bind-Value="@NewCustomer.Lead" class="form-select" id="leadSource">
+                <option value="">Select Lead Source</option>
+                @if (leads == null)
+                {
+
+                }
+                else
+                {
+                    foreach (var Lst in leads)
+                    {
+                        <option value="@Lst.Id">@Lst.Name</option>
+                    }
+                }
+            </InputSelect>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="currentStatus" class="col-sm-2 col-form-label">Current Status</label>
+        <div class="col-sm-10">
+            <InputSelect @bind-Value="@NewCustomer.CurrentStatus" class="form-select" id="currentStatus">
+                <option value="">Select Status</option>
+                @if (statuses == null)
+                {
+
+                }
+                else
+                {
+                    foreach (var Lst in statuses)
+                    {
+                        <option value="@Lst.Id">@Lst.Name</option>
+                    }
+                }
+            </InputSelect>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="interest" class="col-sm-2 col-form-label">Interest</label>
+        <div class="col-sm-10">
+            <InputText @bind-Value="@NewCustomer.Intrest" type="text" class="form-control" id="interest" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
+    <button type="button" class="btn btn-secondary mt-3 ml-2" @onclick="@Cancel">Cancel</button>
+</EditForm>
+@code {
+    private Customer NewCustomer { get; set; } = new Customer();
+    private List<CountryList> countryLists = new();
+    private List<Status> statuses = new();
+    private List<Lead> leads = new();
+
+
+    //get logged in user Id
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    private int LoggedInUserId;
+
+    //-------------------
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        var authState = await authenticationStateTask;
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            // Get the username (typically the email)
+            // username = user.Identity.Name;
+
+            // Get the user ID from the claims and parse to an integer
+            var userIdString = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (int.TryParse(userIdString, out int id))
+            {
+                LoggedInUserId = id;
+            }
+        }
+
+        // try
+        // {
+        countryLists = await EcDictionary.GetCountryListAsync();
+        leads = await EcDictionary.GetLeadAsync();
+        statuses = await EcDictionary.GetCusStatusAsync(1);
+        // }
+        // catch (Exception ex)
+        // {
+        //     // Log error (consider injecting ILogger)
+        //     Console.WriteLine($"Error loading countries: {ex.Message}");
+        //     countryLists = new List<CountryList>(); // Fallback empty list
+        // }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        NewCustomer.CreatedBy = LoggedInUserId;
+        NewCustomer.Status = 1;
+        NewCustomer.CreatedDate = DateTime.Now;
+        NewCustomer.UpdatedDate = DateTime.Now;
+        await InsrtDatas.AddCustomerAsync(NewCustomer);
+        await JSRuntime.InvokeVoidAsync("alert", "Record success fully created");
+        Navigation.NavigateTo("/");
+    }
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/customer");
+    }
+}
